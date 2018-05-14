@@ -149,6 +149,11 @@ export default class Slider extends PureComponent {
     thumbImage: Image.propTypes.source,
 
     /**
+     * Sets a component for the thumb
+     */
+    thumbComponent: PropTypes.element,
+
+    /**
      * Set this to true to visually see the thumb touch rect in green.
      */
     debugTouchArea: PropTypes.bool,
@@ -223,6 +228,7 @@ export default class Slider extends PureComponent {
       maximumTrackTintColor,
       thumbTintColor,
       thumbImage,
+      thumbComponent,
       styles,
       style,
       trackStyle,
@@ -275,7 +281,7 @@ export default class Slider extends PureComponent {
             }
           ]}
         >
-          {this._renderThumbImage()}
+          {thumbComponent ? this._renderThumbComponent() : this._renderThumbImage()}
         </Animated.View>
         <View
           renderToHardwareTextureAndroid={true}
@@ -507,6 +513,14 @@ export default class Slider extends PureComponent {
 
     return <Image source={thumbImage} />;
   };
+}
+
+_renderThumbComponent = () => {
+  var {thumbComponent} = this.props;
+
+  if (!thumbComponent) return;
+
+  return thumbComponent();
 }
 
 var defaultStyles = StyleSheet.create({
