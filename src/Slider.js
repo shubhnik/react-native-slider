@@ -513,14 +513,14 @@ export default class Slider extends PureComponent {
 
     return <Image source={thumbImage} />;
   };
-}
 
-_renderThumbComponent = () => {
-  var {thumbComponent} = this.props;
-
-  if (!thumbComponent) return;
-
-  return thumbComponent();
+  _renderThumbComponent = () => {
+    var {thumbComponent} = this.props;
+  
+    if (!thumbComponent) return;
+  
+    return thumbComponent();
+  }
 }
 
 var defaultStyles = StyleSheet.create({
