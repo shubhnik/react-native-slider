@@ -525,7 +525,7 @@ export default class Slider extends PureComponent {
 
 var defaultStyles = StyleSheet.create({
   container: {
-    height: 40,
+    height: '100%',
     justifyContent: 'center',
   },
   track: {
@@ -533,10 +533,7 @@ var defaultStyles = StyleSheet.create({
     borderRadius: TRACK_SIZE / 2,
   },
   thumb: {
-    position: 'absolute',
-    width: THUMB_SIZE,
-    height: THUMB_SIZE,
-    borderRadius: THUMB_SIZE / 2,
+    position: 'absolute'
   },
   touchArea: {
     position: 'absolute',
